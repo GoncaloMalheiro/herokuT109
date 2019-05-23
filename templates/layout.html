@@ -3,20 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Escola Secundária de Maximinos</title>
+    <link rel="stylesheet" type="text/css" href="/static/style.css">
     </head>
+<body>
 
-    <!-- Side navigation -->
-<div class="sidenav">
-  <a href="#">About</a>
-  <a href="#">Services</a>
-  <a href="#">Clients</a>
-  <a href="#">Contact</a>
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </div>
 </div>
 
-<!-- Page content -->
-<div class="main">
-  ...
-</div>
 {% block conteudo %}
 {% endblock %}
 
