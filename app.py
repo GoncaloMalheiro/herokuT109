@@ -21,5 +21,18 @@ def carrinho():
 def sobremesas():
     return render_template('sobremesas.html')
 
+@app.route('/carne')
+def carne():
+    return render_template('carne.html')
+
+@app.route('/mar')
+def mar():
+    return render_template('mar.html')
+
+@app.route('/queijo')
+def queijo():
+    return render_template('queijo.html')
+
+
 if __name__=='__main__':
     app.run(debug=True)
