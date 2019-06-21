@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request
+import psycopg2
 app = Flask(__name__)
 
 def herokudb():
-    Host='ec2-54-247-72-30.eu-west-1.compute.amazonaws.com'
-    Database='dfp9ni1rfj79li'
-    User='bfsgffjyfxafko'
-    Password='8fcd565921915578936c493b3db9ac3a622996e354e12a4df7c4d9b73a717db0'
+    Host='ec2-54-247-85-251.eu-west-1.compute.amazonaws.com'
+    Database='daqdhaaehav9ji'
+    User='iuhkkpggkhuuqt'
+    Password='078257162d91969bdaffee931cd45251d3db75c9c9f33235f3fce25b4f7f4287'
     return psycopg2.connect(host=Host, database=Database,user=User, password=Password, sslmode='require')
 
 def gravar(v1, v2):
@@ -83,14 +84,13 @@ def registo():
         v2 = request.form['pwd']
         v3 = request.form['cpwd']
         if existe(v1):
-            erro = 'O Utilizador já existe.'
+            erro ='O Utilizador já existe.'
         elif v2 != v3:
             erro = 'A palavra passe não coincide.'
         else:
             gravar(v1, v2)
             erro = 'Utilizador registado com Sucesso.'
     return render_template('registo.html', erro=erro)
-
 
 @app.route('/')
 def index():
