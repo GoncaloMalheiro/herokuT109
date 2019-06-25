@@ -1,12 +1,13 @@
 from flask import Flask, render_template, request
 import psycopg2
+
 app = Flask(__name__)
 
 def herokudb():
-    Host='ec2-54-247-85-251.eu-west-1.compute.amazonaws.com'
-    Database='daqdhaaehav9ji'
-    User='iuhkkpggkhuuqt'
-    Password='078257162d91969bdaffee931cd45251d3db75c9c9f33235f3fce25b4f7f4287'
+    Host='ec2-54-217-225-16.eu-west-1.compute.amazonaws.com'
+    Database='d6ksr1qh1753q1'
+    User='yoxvxmiwrudsak'
+    Password='ec9447c2c23bf8c6598e28f76ddb4ec6538311ffacc4f672821c687d0fbb3fab'
     return psycopg2.connect(host=Host, database=Database,user=User, password=Password, sslmode='require')
 
 def gravar(v1, v2):
@@ -30,8 +31,7 @@ def alterar(v1, v2):
 
 def existe(v1):
     try:
-        import sqlite3
-        ficheiro = sqlite3.connect('db/Utilizador.db')
+        ficheiro = herokudb()
         db = ficheiro.cursor()
         db.execute("SELECT * FROM usr WHERE usr = %s", (v1,))
         valor = db.fetchone()
@@ -60,7 +60,7 @@ def log(v1, v2):
 
 
 @app.route('/newpasse', methods=['POST', 'GET'])
-def newpasse():
+def newpass():
     erro = None
     if request.method == "POST":
         v1 = request.form['usr']
@@ -84,13 +84,14 @@ def registo():
         v2 = request.form['pwd']
         v3 = request.form['cpwd']
         if existe(v1):
-            erro ='O Utilizador já existe.'
+            erro = 'O Utilizador já existe.'
         elif v2 != v3:
             erro = 'A palavra passe não coincide.'
         else:
             gravar(v1, v2)
             erro = 'Utilizador registado com Sucesso.'
     return render_template('registo.html', erro=erro)
+
 
 @app.route('/')
 def index():
@@ -127,26 +128,15 @@ def apagar():
             erro = 'Conta eliminada com Sucesso.'
     return render_template('apagar.html', erro=erro)
 
-@app.route('/carrinho')
-def carrinho():
-    return render_template('carrinho.html')
-
-@app.route('/sobremesas')
-def sobremesas():
-    return render_template('sobremesas.html')
-
-@app.route('/carne')
-def carne():
-    return render_template('carne.html')
-
-@app.route('/mar')
-def mar():
-    return render_template('mar.html')
-
-@app.route('/queijo')
-def queijo():
-    return render_template('queijo.html')
 
 
-if __name__=='__main__':
+@app.route('/galo')
+def galo():
+    return render_template('galo.html')
+
+@app.route('/space')
+def space():
+    return render_template('space.html')
+
+if __name__ == '__main__':
     app.run(debug=True)

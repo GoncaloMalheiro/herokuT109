@@ -1,48 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Pizzaria do nhaca</title>
-    <link rel="stylesheet" type="text/css" href="/static/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-          integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <title>A minha página SQLite3</title>
+    <!-- Load an icon library -->
+    <link rel="shortcut icon" href="static/favicon.png">
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+    {% block head %}
+    {% endblock %}
+
 </head>
 <body>
 
 <div class="navbar">
-    <a href="/"> <i class="fas fa-home"></i> Home</a>
-    <div class="dropdown">
-        <button class="dropbtn">Pizzas
-            <i class="fas fa-pizza-slice"></i>
-        </button>
-        <div class="dropdown-content">
-            <a href="/carne">Carne</a>
-            <a href="/mar">Mar</a>
-            <a href="/queijo">Queijo</a>
-        </div>
-    </div>
-    <a href="/sobremesas"> <i class="fas fa-ice-cream"></i> Sobremesas</a>
-    <a href="login"><i class="fa fa-fw fa-lock"></i> Iniciar Sessão</a>
-    <a href="registo"><i class="fa fa-fw fa-user"></i> Registo</a>
-    <a href="newpasse"><i class="fa fa-fw fa-recycle"></i> Alterar Passe</a>
-    <a href="apagar"><i class="fa fa-fw fa-recycle"></i> Eliminar Conta</a>
-
-
+    <a class="active" href="/"><i class="fa fa-fw fa-home"></i> Home</a>
+    <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
+    <a href="#"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+    <a href="/login"><i class="fa fa-fw fa-lock"></i> Entrar</a>
+    <a href="/registo"><i class="fa fa-fw fa-user"></i> Registo</a>
+    <a href="/newpasse"><i class="fa fa-fw fa-recycle"></i> Alterar Passe</a>
+    <a href="/apagar"><i class="fa fa-fw fa-recycle"></i> Eliminar Conta</a>
 </div>
 
-{% block conteudo %}
+{% block body %}
 {% endblock %}
 
-
-<div class="footer">
-    <br>
-    <p>Email: telepizzabraga@gmail.com</p>
-    <p>Localização: Rua das Alminhas nº8 Sequeira-Braga</p>
-    <p>Telefone: 967586391</p>
-    <p>Apoio Cliente: 808 200 031</p>
-    <small>&copy 2019 Gonçalo Malheiro</small>
-</div>
-
+<center>
+<br>
+<br>
+<br>
+<br>
+    </center>
+<h4>&copy; 2019 Gonçalo Malheiro</h4>
 </body>
 </html>
-
